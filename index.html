@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Teknologi Multimedia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="script.js"></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'beige': '#F5F5DC',
+        'islamic-green': '#48BB78',
+        'deep-blue': '#1A5F7A',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.75s ease-in',
+        'fade-out': 'fadeOut 1s ease-out',
+        marquee: 'marquee 15s linear infinite', // Kept the same
+      },
+      keyframes: {
+        fadeIn: { 
+          '0%': { opacity: '0' }, 
+          '100%': { opacity: '1' } 
+        },
+        fadeOut: { 
+          '0%': { opacity: '1' }, 
+          '100%': { opacity: '0' } 
+        },
+        marquee: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+    },
+  },
+};
+  </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-white scroll-smooth">
+
+  <nav id="navbar" class="backdrop-blur-md bg-white/80 p-4 fixed w-full top-0 z-40 shadow-sm">
+    <div class="flex items-center justify-between">
+      <!-- Logo section -->
+      <div class="flex items-center space-x-4">
+        <div class="bg-white rounded-full p-0 shadow-lg ring-2 ring-islamic-green/30 hover:ring-islamic-green transition-all duration-300">
+          <img 
+            src="./images/pnj-logo.jpeg" 
+            alt="PNJ Logo" 
+            class="w-12 h-12 rounded-full object-cover hover:scale-110 transition-transform"
+          >
+        </div>
+        <div class="bg-white rounded-full p-0 shadow-lg ring-2 ring-soft-blue/30 hover:ring-soft-blue transition-all duration-300">
+          <img 
+            src="./images/logo.jpg" 
+            alt="Quran Logo" 
+            class="w-12 h-12 rounded-full object-cover hover:scale-110 transition-transform"
+          >
+        </div>
+      </div>
+  
+<!-- Running text section with dark background -->
+<div id="running-text" class="flex-1 text-black mx-4 px-4 py-2 overflow-hidden">
+  <div class="whitespace-nowrap">
+    <span id="prayer-text" class="inline-block">Loading...</span>
+  </div>
+</div>
+  
+      <!-- Navigation Links -->
+      <div class="flex items-center space-x-8">
+        <div id="hover-bg" class="absolute top-0 left-0 h-full bg-green-300 rounded-full opacity-0 transition-all duration-300"></div>
+        <a href="#home" class="text-gray-700 hover:text-blue-600 py-2 px-6 relative z-10 hover:scale-105 rounded-full transition-all duration-300 font-medium">
+          <i class="fas fa-home mr-2"></i>Home
+        </a>
+        <a href="#team" class="text-gray-700 hover:text-blue-600 py-2 px-6 relative z-10 hover:scale-105 rounded-full transition-all duration-300 font-medium">
+          <i class="fas fa-users mr-2"></i>Our Team
+        </a>
+        <a href="#courses" class="text-gray-700 hover:text-blue-600 py-2 px-6 relative z-10 hover:scale-105 rounded-full transition-all duration-300 font-medium">
+          <i class="fas fa-book-open mr-2"></i>Materi
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+<!-- Greeting Section -->
+<main class="pt-14">
+  <section id="home" class="min-h-screen relative flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('./images/logo.jpg');">
+    <!-- Overlay with gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+    
+    <!-- Content Container -->
+    <div class="relative z-10 w-full flex items-center justify-between p-12 animthis">
+      <!-- Left Content -->
+      <div class="w-1/2 space-y-8">
+        <h1 id="greeting" class="text-5xl text-white font-bold mb-4 leading-tight">
+          <i class="fas fa-quran mr-4 text-blue-300"></i>Loading...
+        </h1>        
+        <div class="space-y-6">
+          <p class="text-xl text-white/90 leading-relaxed">Selamat datang di website <strong class="text-blue-300">PAITIK</strong></p>
+          <p class="text-xl text-white/90 leading-relaxed">Di website ini, kalian dapat mendalami kembali materi dari mata kuliah <strong class="text-blue-300">Agama Islam</strong> untuk memperkuat pemahaman.</p>
+          <p class="text-xl text-white/90 leading-relaxed">Website ini juga dirancang bagi kalian yang masih merasa kurang paham, sehingga dapat membantu memahami Agama dengan lebih baik.</p>
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl space-y-4 mt-8 hover:scale-105 transition-transform duration-500">
+            <p class="text-lg text-white/90 font-arabic leading-relaxed">عَنْ أَبِي الدَّرْدَاءِ قَالَ سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُوْلُ مَنْ سَلَكَ طَرِيقًا يَطْلُبُ فِيْهِ عِلْمًا سَلَكَ اللَّهُ بِهِ طَرِيقًا مِنْ طُرُقِ الْجَنَّةِ وَإِنَّ الْمَلَائِكَةَ لَتَضَعُ أَجْنِحَتَهَا رِضًا لِطَالِبِ الْعِلْمِ وَإِنَّ الْعَالِمَ لَيَسْتَغْفِرُ لَهُ مَنْ فِي السَّمَوَاتِ وَمَنْ فِي الْأَرْضِ وَالْحِيْتَانُ فِيجَوْفِ الْمَاءِ</p>
+            <p class="text-lg text-white/90 italic">Artinya: Dari Abu Darda' berkata, "Aku mendengar Rasulullah SAW bersabda: 'Barangsiapa meniti jalan untuk menuntut ilmu maka Allah akan mempermudahnya jalan ke surga. Sungguh, para malaikat merendahkan sayapnya sebagai keridaan kepada penuntut ilmu Orang yang berilmu akan dimintakan maaf oleh penduduk langit dan bumi hingga ikan yang ada di dasar laut'."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="hover:scale-105 w-1/2 flex justify-end transition-transform duration-500">
+        <img src="./images/quran-homepage.png" alt="Multimedia" class="max-h-[70vh] w-3/4 object-contain rounded-2xl shadow-2xl" />
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Team Section -->
+<section id="team" class="min-h-screen bg-gradient-to-br from-white to-blue-50 flex flex-col items-center justify-center p-12 animthis">
+  <!-- Title -->
+  <div class="text-center mb-16 max-w-2xl">
+    <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+      <i class="fas fa-users mr-4"></i>Team
+    </h1>  
+  </div>
+  
+  <!-- Team Cards -->
+  <div class="flex flex-wrap justify-center gap-12">
+    <!-- Team Member 1 -->
+    <div class="group hover:scale-105 bg-white shadow-xl rounded-2xl p-8 w-64 text-center transition-all duration-300 hover:shadow-2xl">
+      <div class="rounded-full h-44 w-44 mx-auto overflow-hidden ring-4 ring-blue-100 group-hover:ring-blue-300 transition-all duration-300">
+        <img src="./images/rizki.jpeg" alt="Mohammad Rizki Syahputra" class="w-full h-full object-cover">
+      </div>
+      <h2 class="mt-6 font-semibold text-xl text-gray-800">Mohammad Rizki Syahputra</h2>
+      <h3 class="mt-4 text-gray-600">
+        <i class="fas fa-code mr-2"></i>Web Developer
+      </h3>
+    </div>
+
+    <!-- Team Member 2 -->
+    <div class="group hover:scale-105 bg-white shadow-xl rounded-2xl p-8 w-64 text-center transition-all duration-300 hover:shadow-2xl">
+      <div class="rounded-full h-44 w-44 mx-auto overflow-hidden ring-4 ring-blue-100 group-hover:ring-blue-300 transition-all duration-300">
+        <img src="./images/dendy.jpeg" alt="Dendy Rafi" class="w-full h-full object-cover">
+      </div>
+      <h2 class="mt-6 font-semibold text-xl text-gray-800">Dendy Rafi</h2>
+      <h3 class="mt-4 text-gray-600">
+        <i class="fas fa-pencil-ruler mr-2"></i>Perancang Materi
+      </h3>
+    </div>
+
+    <!-- Team Member 3 -->
+    <div class="group hover:scale-105 bg-white shadow-xl rounded-2xl p-8 w-64 text-center transition-all duration-300 hover:shadow-2xl">
+      <div class="rounded-full h-44 w-44 mx-auto overflow-hidden ring-4 ring-blue-100 group-hover:ring-blue-300 transition-all duration-300">
+        <img src="./images/naqib.jpeg" alt="Naqib Zuhair" class="w-full h-full object-cover">
+      </div>
+      <h2 class="mt-6 font-semibold text-xl text-gray-800">Naqib Zuhair</h2>
+      <h3 class="mt-4 text-gray-600">
+        <i class="fas fa-pencil-ruler mr-2"></i>Perancang Materi
+      </h3>    
+    </div>
+  </div>
+</section>
+
+<!-- Courses section -->
+<section id="courses" class="min-h-screen bg-gradient-to-br from-indigo-50 to-white py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 space-y-4 animthis">
+      <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+        <i class="fas fa-book-reader mr-4"></i>Materi
+      </h1>
+    </div>
+
+    <!-- Course Grid with Enhanced Design -->
+    <div id="course-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animthis">
+      <!-- Courses will be dynamically inserted here -->
+    </div>
+
+    <!-- Pagination with Modern Style -->
+    <div id="pagination" class="flex justify-center space-x-4 mt-12 items-center"></div>
+  </div>
+</section>
+
+<!-- Footer Credit Section -->
+<footer class="bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-12">
+  <div class="container mx-auto px-8">
+    <!-- Image Credits Section -->
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Image Credits Section -->
+      <div class="space-y-4">
+        <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+          <i class="fas fa-image text-blue-400"></i>
+          Image Credits
+        </h3>
+      <div class="space-y-2">
+        <div class="flex items-center gap-3">
+          <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+          <a 
+            href="https://id.pngtree.com/freebackground/islamic-background-milad-un-nabi-muslim-ramadan-festival-with-mosque-and-pattern_1220601.html" 
+            class="hover:text-blue-300 transition-colors flex items-center gap-2"
+          >
+            <i class="fas fa-link text-sm"></i>
+            PNGTree 
+            <i class="fas fa-external-link-alt text-xs"></i>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+          <a 
+            href="https://www.pngwing.com/id/free-png-nipih/download" 
+            class="hover:text-blue-300 transition-colors flex items-center gap-2"
+          >
+            <i class="fas fa-link text-sm"></i>
+            PNGWING
+            <i class="fas fa-external-link-alt text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technologies Used Section -->
+    <div class="space-y-4 text-center">
+        <h3 class="text-2xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+          <i class="fas fa-laptop-code text-blue-400"></i>
+          Technologies Used
+        </h3>
+      <div class="space-y-4">
+        <div class="flex justify-center space-x-4">
+          <a 
+            href="https://code.visualstudio.com/" 
+            target="_blank"
+            class="bg-white/10 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-white/20 transition-all group"
+          >
+            <i class="fas fa-code text-blue-400 group-hover:text-blue-300 transition-colors"></i>
+            <span class="group-hover:text-blue-300 transition-colors">VSCode</span>
+            <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+          </a>
+        </div>
+        
+        <div class="flex justify-center space-x-4">
+          <a 
+            href="https://tailwindcss.com/docs/installation" 
+            target="_blank"
+            class="bg-white/10 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-white/20 transition-all group"
+          >
+            <i class="fab fa-css3-alt text-blue-400 group-hover:text-blue-300 transition-colors"></i>
+            <span class="group-hover:text-blue-300 transition-colors">Tailwind CSS</span>
+            <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+          </a>
+        </div>
+    
+        <div class="flex justify-center space-x-4">
+          <div class="bg-white/10 px-4 py-2 rounded-full flex items-center gap-2">
+            <i class="fas fa-file-code text-green-400"></i>
+            <span>Web : HTML, CSS (Framework Tailwind), JavaScript</span>
+          </div>
+        </div>
+    
+        <div class="flex justify-center space-x-4">
+          <a 
+            href="https://sweetalert2.github.io/" 
+            target="_blank"
+            class="bg-white/10 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-white/20 transition-all group"
+          >
+            <i class="fas fa-magic text-purple-400 group-hover:text-purple-300 transition-colors"></i>
+            <span class="group-hover:text-purple-300 transition-colors">SweetAlert2</span>
+            <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+          </a>
+        </div>
+    
+        <div class="flex justify-center space-x-4">
+          <a 
+            href="https://fontawesome.com/" 
+            target="_blank"
+            class="bg-white/10 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-white/20 transition-all group"
+          >
+            <i class="fab fa-font-awesome text-red-400 group-hover:text-red-300 transition-colors"></i>
+            <span class="group-hover:text-red-300 transition-colors">Font Awesome</span>
+            <i class="fas fa-external-link-alt text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="space-y-4 text-left">
+      <h3 class="text-1xl font-bold text-white mb-4 flex items-center justify-end gap-3">
+        <i class="fas fa-question-circle text-blue-400"></i>
+        Kenapa membuat project ini?
+      </h3>
+      <div class="text-gray-300 space-y-2 text-left">
+        <div class="flex items-center gap-3">
+          <i class="fas fa-lightbulb text-yellow-400"></i>
+          <span>Meningkatkan aksesibilitas pembelajaran agama Islam secara online.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fas fa-lightbulb text-yellow-400"></i>
+          <span>Memadukan nilai-nilai Islam dengan teknologi modern.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fas fa-lightbulb text-yellow-400"></i>
+          <span>Menyediakan platform pembelajaran yang interaktif dan terstruktur.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fas fa-lightbulb text-yellow-400"></i>
+          <span>Memberikan solusi belajar agama yang fleksibel dan ramah pengguna.</span>
+        </div>
+      </div>
+    </div>
+    
+
+  <!-- Copyright Section - Separated from the grid -->
+  <div class="mt-8 pt-6 border-t border-blue-800">
+    <p class="text-gray-400 flex items-center justify-center gap-2">
+      <i class="fas fa-copyright text-blue-400"></i>
+      © 2024 Project Teknologi Multimedia. All rights reserved.
+      <i class="fas fa-heart text-red-400 animate-pulse"></i>
+    </p>
+  </div>
+</div>
+</footer>
+</body>
+</html>

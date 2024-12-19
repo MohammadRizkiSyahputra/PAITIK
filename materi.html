@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="materi.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+            'soft-blue': '#E6F2FF',
+            'deep-blue': '#1A5F7A',
+            'accent-blue': '#159895'
+          },
+          boxShadow: {
+            'elegant': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            'smooth': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+          },
+          opacity: {
+        '0': '0',
+        '100': '1',
+      },
+      animation: {
+  'slide-in-up': 'slideInUp 0.3s ease-out',
+  'slide-in-down': 'slideInDown 0.3s ease-out',
+  'slide-in': 'slideIn 0.3s ease-out',
+  'slide-out': 'slideOut 0.3s ease-out'
+},
+keyframes: {
+  slideInUp: {
+    'from': { transform: 'translateY(-20px)', opacity: '0' },
+    'to': { transform: 'translateY(0)', opacity: '1' }
+  },
+  slideInDown: {
+    'from': { transform: 'translateY(20px)', opacity: '0' },
+    'to': { transform: 'translateY(0)', opacity: '1' }
+  },
+  slideIn: {
+    'from': { transform: 'translateY(20px)', opacity: '0' },
+    'to': { transform: 'translateY(0)', opacity: '1' }
+  },
+  slideOut: {
+    'from': { transform: 'translateY(0)', opacity: '1' },
+    'to': { transform: 'translateY(20px)', opacity: '0' }
+  }
+}
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-gray-50">
+
+  <nav class="bg-white/90 backdrop-blur-md p-3 fixed w-full top-0 z-40 shadow-md">
+    <div class="flex justify-end space-x-8">
+      <a href="index.html" class="transition transform hover:scale-105 bg-deep-blue text-white py-2 px-4 rounded-full hover:bg-accent-blue">
+        <i class="fas fa-arrow-left"></i> Back to home
+      </a>
+    </div>
+  </nav>
+
+    <!-- Logo Container -->
+    <div class="fixed top-2 left-4 flex items-center space-x-4 z-40">
+      <div class="flex space-x-2">
+        <div class="bg-white rounded-full p-0 shadow-lg ring-2 ring-islamic-green/30 hover:ring-islamic-green transition-all duration-300">
+          <img 
+            src="./images/pnj-logo.jpeg" 
+            alt="PNJ Logo" 
+            class="w-12 h-12 rounded-full object-cover hover:scale-110 transition-transform">
+        </div>
+        <div class="bg-white rounded-full p-0 shadow-lg ring-2 ring-soft-blue/30 hover:ring-soft-blue transition-all duration-300">
+          <img 
+            src="./images/logo.jpg" 
+            alt="Quran Logo" 
+            class="w-12 h-12 rounded-full object-cover hover:scale-110 transition-transform">
+        </div>
+      </div>
+    </div>
+    
+
+ <!-- Main Section -->
+ <section id="home" class="min-h-screen p-8 pt-24">
+  <div class="container mx-auto">
+    <h1 id="materiTitle" class="text-4xl font-bold text-deep-blue mb-8 border-b-4 border-accent-blue pb-2">
+      <i class="fas fa-book-open"></i> Materi Hakikat Manusia dalam Islam
+    </h1>
+
+     <!-- Flex Container for Video and List -->
+  <div class="grid grid-cols-3 gap-6">
+        <!-- Video and Content Container -->
+      <div class="col-span-2 bg-white rounded-xl shadow-smooth p-6">
+       <!-- Toggle Buttons -->
+       <div class="flex gap-2 mb-4">
+        <button id="videoBtn" 
+          class="hover:scale-105 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+          <i class="fas fa-video"></i> Video
+        </button>
+        <button id="pptBtn" 
+          class="hover:scale-105 px-4 py-2 bg-gray-500 text-white rounded hover:bg-blue-600 transition-colors">
+          <i class="fas fa-file-powerpoint"></i> PPT
+        </button>
+        <button id="pdfBtn"
+        class="hover:scale-105 px-4 py-2 bg-gray-500 text-white rounded hover:bg-blue-600 transition-colors">
+        <i class="fas fa-file-pdf"></i> PDF
+      </button>
+      </div>
+
+      <div id="contentContainer">
+        <iframe 
+        id="videoPlayer"
+        src="https://drive.google.com/file/d/1rtgTmlAbqhaGkcYhzXcy_aMF2_vgPdzW/preview"
+        class="w-full aspect-video"
+        allowfullscreen
+      >
+      </iframe>
+
+      <iframe 
+        id="pptViewer"
+        class="w-full aspect-video hidden"
+        frameborder="0"
+    ></iframe>
+
+      <iframe
+        id="pdfViewer"
+        class="w-full aspect-video hidden"
+        frameborder="0"
+      ></iframe>
+    </div>
+
+     <!-- Description -->
+<div class="w-full bg-gray-100 text-sm p-4 border">
+  <p class="text-lg underline">Deskripsi</p>
+  <p class="text-lg whitespace-pre-line" id="videoDescription"></p>
+  <p class="text-2xl whitespace-pre-line"><br>Uji pemahaman kamu dengan kuis dibawah ini<br></p>
+
+  <!-- Quiz Button -->
+  <div class="w-full text-left mt-4">
+    <button id="quizButton" class="hover:scale-105 bg-blue-500 text-white font-bold py-2 px-6 rounded shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+      <i class="fas fa-clipboard-list"></i> Mulai Kuis
+    </button>
+    </div>
+  </div>
+</div>
+
+<!-- Popup Modal -->
+<div id="quizModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-40">
+  <div id="popupContent" class="bg-white rounded-lg shadow-lg w-96 p-6 text-left">
+    <p class="text-xl font-bold mb-4">Ingin mengerjakan kuis?</p>
+    <p class="text-sm text-gray-600 mb-4">
+      *Direkomendasikan untuk menonton VIDEO atau mempelajari PPT terlebih dahulu sebelum memulai kuis
+    </p>
+    <p class="text-sm text-gray-600 mb-4">
+      *Kuis berisi 10 pertanyaan dengan format pilihan ganda dengan maksimal waktu mengerjakan 30 menit
+    </p>
+    <p class="text-sm text-gray-600 mb-4">
+      *Eits tenang aja quiznya bisa di cancel kok!
+    </p>
+    <div class="flex justify-center gap-4">
+      <button id="startQuizButton" class="hover:scale-105 bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">Mulai</button>
+      <button id="cancelButton" class="hover:scale-105 bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-600">Batal</button>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz Popup -->
+<div id="quizPopup" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden z-40">
+  <div class="bg-white p-6 rounded-lg w-[600px] relative"> <!-- Added relative positioning -->
+    <!-- Large X Button -->
+    <button id="cancelQuiz" class="absolute top-4 right-4 text-gray-600 hover:text-red-500 z-50">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="flex justify-between items-center mb-4">
+      <p class="text-2xl font-bold">Uji Pemahaman Kamu</p>
+    </div>
+    <p class="text-sm mb-4 text-gray-600">Waktu tersisa: <span id="timer">30:00</span></p>
+
+  <!-- Quiz Section -->
+<div id="quizSection">
+  <!-- Quiz Questions Container -->
+  <div id="quizQuestions" class="overflow-y-auto max-h-[60vh] z-40 w-full">
+      <!-- Questions will be dynamically added here -->
+  </div>
+
+  <!-- Quiz Pagination -->
+  <div id="quizPagination" class="mt-4 w-full"></div>
+    </div>
+
+    <div class="mt-6 flex justify-end items-center z-40">
+      <!-- Submit Quiz Button -->
+      <button id="submitQuiz" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 z-40">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Solutions Popup -->
+<div id="solutions-popup" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden z-40">
+  <div class="bg-white p-6 rounded-lg w-[90%] max-w-[800px] max-h-[90vh] overflow-hidden relative"> 
+    <!-- Close Button -->
+    <button id="close-solutions" class="absolute top-4 right-4 text-gray-600 hover:text-red-500 z-50">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold">Pembahasan</h2>
+    </div>
+
+    <!-- Overall Score Summary -->
+    <div id="solutions-summary" class="mb-4 bg-gray-100 p-4 rounded-lg">
+      <!-- Total score will be dynamically inserted here -->
+    </div>
+
+    <!-- Quiz Solutions Container -->
+    <div id="solutions-container" class="overflow-y-auto max-h-[60vh] pr-2">
+      <!-- Quiz solutions will be dynamically populated here -->
+    </div>
+  </div>
+</div>
+    
+<!-- Video List -->
+<div class="bg-white rounded-xl shadow-smooth p-6 overflow-y-auto h-[750px] relative">
+  <h2 class="text-xl font-semibold mb-4 text-deep-blue border-b pb-2">
+    List Pembelajaran
+  </h2>
+    <div id="hover-bg" class="absolute bg-blue-100 transition-all duration-300 ease-in-out z-0 rounded-md pointer-events-none"></div>
+    <div class="space-y-3">
+      <button class="w-full text-left p-3 hover:scale-105 rounded-md transition-colors cursor-pointer z-20 relative" 
+          data-title="Materi Hakikat Manusia dalam Islam"
+          data-courseid="1">
+          <i class="fas fa-book-open text-deep-blue"></i> Hakikat Manusia dalam Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Agama Islam dan Ruang Lingkupnya"
+        data-courseid="2">
+        <i class="fas fa-book-open text-deep-blue"></i> Agama Islam dan Ruang Lingkupnya
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Sumber-sumber Ajaran Islam"
+        data-courseid="3">
+        <i class="fas fa-book-open text-deep-blue"></i> Sumber-sumber Ajaran Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Hukum Islam (Syariah) dan HAM dalam Islam"
+        data-courseid="4">
+        <i class="fas fa-book-open text-deep-blue"></i> Hukum Islam (Syariah) dan HAM dalam Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-courseid="5">
+        <i class="fas fa-book-open text-deep-blue"></i> Perkembangan IPTEKS dalam Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Kerukunan Umat Beragama"
+        data-courseid="6">
+        <i class="fas fa-book-open text-deep-blue"></i> Kerukunan Umat Beragama
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Masyarakat Madani dalam Islam"
+        data-courseid="7">
+        <i class="fas fa-book-open text-deep-blue"></i> Masyarakat Madani dalam Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Kebudayaan Islam"
+        data-courseid="8">
+        <i class="fas fa-book-open text-deep-blue"></i> Kebudayaan Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Sistem Politik dalam Islam"
+        data-courseid="9">
+        <i class="fas fa-book-open text-deep-blue"></i> Sistem Politik dalam Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Ekonomi Islam"
+        data-courseid="10">
+        <i class="fas fa-book-open text-deep-blue"></i> Ekonomi Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Keluarga dalam Islam"
+        data-courseid="11">
+        <i class="fas fa-book-open text-deep-blue"></i> Keluarga dalam Islam
+      </button>
+      <button class="w-full text-left p-3  hover:scale-105 rounded-md transition-colors  cursor-pointer z-20 relative" 
+        data-title="Materi Akhlak, Etika, Moral dalam Islam"
+        data-courseid="12">
+        <i class="fas fa-book-open text-deep-blue"></i> Akhlak, Etika, Moral dalam Islam
+      </button>
+      </div>
+    </div>
+  </div>
+  </section>
+</body>
+</html>
